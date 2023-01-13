@@ -18,7 +18,7 @@ const useMessage = () => {
     }
 
     const postMessage = async (message) => {
-        await axios.post(`${baseUrl}messages`, {
+        const { status } = await axios.post(`${baseUrl}messages`, {
             userName: message.name,
             text: message.text
         }, {
@@ -28,7 +28,9 @@ const useMessage = () => {
                 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
             }
         })
-        fetchMessage()
+        if (status === 200) {
+            setMessages((prev) => [...prev, message])
+        }
     }
 
     React.useEffect(() => {
