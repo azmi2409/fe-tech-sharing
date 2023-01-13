@@ -29,7 +29,10 @@ const useMessage = () => {
             }
         })
         if (status === 200) {
-            setMessages((prev) => [...prev, message])
+            setMessages((prev) => [...prev, {
+                userName: message.name,
+                text: message.message,
+            }])
         }
     }
 
