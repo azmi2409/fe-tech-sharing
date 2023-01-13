@@ -7,12 +7,24 @@ const useMessage = () => {
     const [messages, setMessages] = React.useState([])
 
     const fetchMessage = async () => {
-        const { data } = await axios.get(`${baseUrl}/messages`)
+        const { data } = await axios.get(`${baseUrl}messages`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            }
+        })
         setMessages(data)
     }
 
     const postMessage = async (message) => {
-        await axios.post(`${baseUrl}/messages`, message)
+        await axios.post(`${baseUrl}/messages`, message, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            }
+        })
         fetchMessage()
     }
 
