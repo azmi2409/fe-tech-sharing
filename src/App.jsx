@@ -31,7 +31,7 @@ function App() {
         </div>
         <div className='flex justify-center items-center gap-2'>
           <label>Message:</label>
-          <input name='text' value={input.message} onChange={handleChange} className='border-2 border-black' type='text' />
+          <input name='message' value={input.message} onChange={handleChange} className='border-2 border-black' type='text' />
         </div>
         <div className='flex justify-center items-center gap-2'>
           <button type='submit' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-40'>Submit</button>
