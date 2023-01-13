@@ -7,7 +7,7 @@ const useMessage = () => {
     const [messages, setMessages] = React.useState([])
 
     const fetchMessage = async () => {
-        const { data } = await axios.get(`${baseUrl}messages`, {
+        const { data } = await axios.get(`${baseUrl}/messages`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
@@ -18,7 +18,7 @@ const useMessage = () => {
     }
 
     const postMessage = async (message) => {
-        const { status } = await axios.post(`${baseUrl}messages`, {
+        const { status } = await axios.post(`${baseUrl}/messages`, {
             userName: message.name,
             text: message.message
         }, {
