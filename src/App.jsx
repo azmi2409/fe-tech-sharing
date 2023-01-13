@@ -4,7 +4,7 @@ import moment from 'moment'
 
 const baseInput = {
   name: '',
-  text: '',
+  message: '',
 }
 
 function App() {
