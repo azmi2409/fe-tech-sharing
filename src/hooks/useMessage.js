@@ -18,7 +18,10 @@ const useMessage = () => {
     }
 
     const postMessage = async (message) => {
-        await axios.post(`${baseUrl}/messages`, message, {
+        await axios.post(`${baseUrl}messages`, {
+            userName: message.name,
+            text: message.text
+        }, {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
